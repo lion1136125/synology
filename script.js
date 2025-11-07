@@ -1,33 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("serviceForm");
-  const popup = document.getElementById("submitSuccess");
+  const successBox = document.getElementById("submitSuccess");
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (popup) {
-        popup.style.display = "block";
-        setTimeout(() => { popup.style.display = "none"; }, 5000);
-      }
-      form.reset();
-    });
-  }
-});
+  if (!form) return;
 
-// Desktop: disable tel: links so they do nothing on PC
-(function(){
-  function disableTelOnDesktop(){
-    if (window.matchMedia && window.matchMedia('(min-width: 960px)').matches){
-      document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
-        a.addEventListener('click', function(e){ e.preventDefault(); }, { passive:false });
-        a.style.cursor = 'default';
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
       });
+
+      if (res.ok) {
+        form.reset();
+
+        // 성공 토스트 표시
+        if (successBox) {
+          successBox.classList.add("show");
+          setTimeout(() => {
+            successBox.classList.remove("show");
+          }, 8000); // 8초 후 자동 숨김
+        }
+      } else {
+        alert("전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.");
+      }
+    } catch (err) {
+      alert("네트워크 오류로 접수에 실패했습니다. 1544-6068로 문의 부탁드립니다.");
     }
-  }
-  if (document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', disableTelOnDesktop);
-  } else {
-    disableTelOnDesktop();
-  }
-  window.addEventListener('resize', disableTelOnDesktop);
-})();
+  });
+});
