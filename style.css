@@ -297,3 +297,15 @@ main {
 @media (max-width: 600px) {
   .grid { grid-template-columns: 1fr; }
 }
+.logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background-color: #f7f8fb; /* 원하는 연한 회색 */
+    border-radius: 6px;
+}
+
+.logo-wrap .logo {
+    display: block;
+    height: 32px; /* 필요하면 조정 */
+}
