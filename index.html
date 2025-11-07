@@ -132,49 +132,61 @@
         </div>
       </div>
 
-      <form class="request-form-card" id="serviceForm">
-        <div class="form-head">온라인 접수 / 문의</div>
+<form class="request-form-card"
+      action="https://formsubmit.co/noteservice@outlook.kr"
+      method="POST">
 
-        <div class="form-group">
-          <label for="custName">성함</label>
-          <input id="custName" name="성함" type="text" placeholder="예) 홍길동" required />
-        </div>
+  <!-- FormSubmit 옵션 -->
+  <input type="hidden" name="_subject" value="Synology 서비스센터 온라인 접수" />
+  <!-- 접수 후 다시 이 사이트로 돌아오게 (주소는 실제 도메인에 맞게 수정) -->
+  <input type="hidden" name="_next" value="https://www.synology-service.co.kr/?success=1" />
+  <!-- 표 형식 메일 -->
+  <input type="hidden" name="_template" value="table" />
+  <!-- 캡차 끄기 (원하면 유지) -->
+  <input type="hidden" name="_captcha" value="false" />
 
-        <div class="form-group">
-          <label for="custPhone">연락처</label>
-          <input id="custPhone" name="연락처" type="tel" placeholder="예) 010-1234-5678" required />
-        </div>
+  <div class="form-head">온라인 접수 / 문의</div>
 
-        <div class="form-group">
-          <label for="custArea">지역 / 주소(동까지)</label>
-          <input id="custArea" name="지역/주소" type="text" placeholder="예) Gasan-dong / 택배 접수 원함" />
-        </div>
+  <div class="form-group">
+    <label for="custName">성함</label>
+    <input id="custName" name="성함" type="text" placeholder="예) 홍길동" required />
+  </div>
 
-        <div class="form-group">
-          <label for="issueType">고장 증상</label>
-          <select id="issueType" name="고장 증상">
-            <option value=" 부팅 불가 / 접근 불가 "> 부팅 불가 / 접근 불가 </option>
-            <option value="액정 파손 / 화면 불량">액정 파손 / 화면 불량</option>
-            <option value="발열 / 팬 소음">발열 / 팬 소음</option>
-            <option value="데이터 복구 요청">데이터 복구 요청</option>
-            <option value="충전 / 배터리 문제">충전 / 배터리 문제</option>
-            <option value="기타">기타 (아래에 상세)</option>
-          </select>
-        </div>
+  <div class="form-group">
+    <label for="custPhone">연락처</label>
+    <input id="custPhone" name="연락처" type="tel" placeholder="예) 010-1234-5678" required />
+  </div>
 
-        <div class="form-group">
-          <label for="issueDetail">상세 증상 (선택)</label>
-          <textarea id="issueDetail" name="상세 설명" rows="4"
-            placeholder="예) 전원 켜지다가 바로 꺼집니다. 액정에 세로줄이 생겼어요 등"></textarea>
-        </div>
+  <div class="form-group">
+    <label for="custArea">지역 / 주소(동까지)</label>
+    <input id="custArea" name="지역/주소" type="text" placeholder="예) Gasan-dong / 택배 접수 원함" />
+  </div>
 
-        <button type="submit" class="submit-btn">접수 요청하기</button>
+  <div class="form-group">
+    <label for="issueType">고장 증상</label>
+    <select id="issueType" name="고장 증상">
+      <option value="부팅 불가 / 접근 불가">부팅 불가 / 접근 불가</option>
+      <option value="디스크 오류 / RAID 장애">디스크 오류 / RAID 장애</option>
+      <option value="데이터 복구 요청">데이터 복구 요청</option>
+      <option value="네트워크 / 공유 폴더 문제">네트워크 / 공유 폴더 문제</option>
+      <option value="기타">기타 (아래 상세 기재)</option>
+    </select>
+  </div>
 
-        <div class="form-note">
-          접수하시면 확인후 빠른 연락드리겠습니다.<br />
-          빠른 상담은 1544-6068 로 전화 주세요.
-        </div>
-      </form>
+  <div class="form-group">
+    <label for="issueDetail">상세 증상 (선택)</label>
+    <textarea id="issueDetail" name="상세 설명" rows="4"
+      placeholder="정확한 모델명, 증상 발생 시점, 에러 메시지 등을 적어주세요."></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn">접수 요청하기</button>
+
+  <div class="form-note">
+    접수하시면 확인 후 빠른 연락드리겠습니다.<br />
+    빠른 상담은 1544-6068로 전화 주세요.
+  </div>
+</form>
+
     </div>
   </section>
 
