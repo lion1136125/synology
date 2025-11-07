@@ -139,6 +139,7 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
 .footer-tel{ color:#fff; font-weight:800; text-decoration:none; }
 .footer-tel:hover{ text-decoration:underline; }
 
+/* ===== 접수 성공 팝업 ===== */
 .submit-success {
   position: fixed;
   right: 24px;
@@ -151,6 +152,7 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   line-height: 1.6;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  display: none;              /* 기본은 숨김 */
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
@@ -159,10 +161,21 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
 }
 
 .submit-success.show {
+  display: block;             /* 보여 줄 때만 표시 */
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
+
+@media (max-width: 600px) {
+  .submit-success {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}
+
 
 
 /* Desktop hard override for call-box */
