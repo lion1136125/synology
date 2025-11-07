@@ -139,14 +139,31 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
 .footer-tel{ color:#fff; font-weight:800; text-decoration:none; }
 .footer-tel:hover{ text-decoration:underline; }
 
-/* SUCCESS POPUP */
-.submit-success{
-  position:fixed; left:16px; right:16px; bottom:16px; z-index:9999;
-  background:var(--brand-color); color:#fff; border-radius:12px;
-  box-shadow:0 20px 40px rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.2);
-  padding:16px 20px; font-size:0.9rem; line-height:1.4; text-align:center; font-weight:700;
+.submit-success {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  max-width: 360px;
+  padding: 18px 24px;
+  background: #e53935;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 9999;
 }
-@media (min-width:480px){ .submit-success{ left:auto; right:24px; bottom:24px; max-width:320px; } }
+
+.submit-success.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 
 /* Desktop hard override for call-box */
 @media (min-width: 960px){
