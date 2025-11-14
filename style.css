@@ -244,3 +244,33 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   color: var(--brand-primary) !important;
 }
 
+/* === Red glow → Blue glow (or remove) =================== */
+/* 1) 버튼/전화 배지의 그림자색 변경 */
+.hero-actions .hero-call,
+.hero-actions .hero-goform,
+.hero-actions .headline-call{
+  /* 파란빛 후광 */
+  box-shadow: 0 10px 30px rgba(22,119,255,.35) !important;
+}
+
+/* 2) 버튼 밑에 깔린 보조 그라데이션(있다면) 색 바꾸기 */
+.hero-actions::after{
+  /* 프로젝트에 이 after가 있다면 빨간 원형그라데이션을 파란색으로 교체 */
+  content: '';
+  position: absolute; inset: auto 0 -6px 0;
+  height: 42px;
+  background: radial-gradient(50% 60% at 50% 50%,
+              rgba(22,119,255,.30) 0%, rgba(22,119,255,0) 70%) !important;
+  pointer-events: none;
+}
+
+/* 3) 체크 아이콘(빨간 체크)도 파란색으로 */
+.hero-highlights li::before{
+  color: #1677ff !important;
+}
+
+/* 4) 후광을 '없애고' 싶다면 위 1~2 대신 아래 두 줄만 사용 */
+ /* .hero-actions .hero-call,
+    .hero-actions .hero-goform,
+    .hero-actions .headline-call{ box-shadow:none !important; }
+    .hero-actions::after{ display:none !important; } */
