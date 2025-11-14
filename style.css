@@ -184,3 +184,63 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   .site-header .header-inner .call-box .call-label{ font-size:0.85rem !important; font-weight:700 !important; color:#888 !important; margin-right:6px !important; order:0; }
   .site-header .header-inner .call-box .call-number{ line-height:1 !important; text-align:left !important; order:1; }
 }
+/* ===== Brand Blue Theme Override ===== */
+:root{
+  --brand-primary: #1677ff;      /* 기본 파랑 */
+  --brand-primary-600: #155ae8;  /* 호버/활성 */
+  --brand-primary-700: #0f4fd0;  /* 더 진한 포커스 */
+  --brand-soft: rgba(22,119,255,.12);   /* 연한 배경 */
+  --brand-border: rgba(22,119,255,.35); /* 연한 테두리 */
+}
+
+/* 상단 상담 버튼, 히어로 주요 버튼, 제출 버튼 */
+.call-button,
+.hero-call,
+.submit-btn{
+  background: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color:#fff !important;
+}
+.call-button:hover,
+.hero-call:hover,
+.submit-btn:hover{
+  background: var(--brand-primary-600) !important;
+  border-color: var(--brand-primary-600) !important;
+}
+
+/* 전화걸기(외곽선) 스타일 */
+.hero-goform{
+  background: transparent !important;
+  color: var(--brand-primary) !important;
+  border: 2px solid var(--brand-primary) !important;
+}
+.hero-goform:hover{
+  background: var(--brand-soft) !important;
+}
+
+/* 히어로의 전화 배지(📞 1544-6068) */
+.headline-call{
+  background: var(--brand-soft) !important;
+  color: var(--brand-primary) !important;
+  border: 1px solid var(--brand-border) !important;
+}
+
+/* 폼 카드 상단 빨간 바 */
+.request-form-card .form-head{
+  background: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color:#fff !important;
+}
+
+/* 성공 팝업(빨간 말풍선) */
+.submit-success{
+  background: var(--brand-primary) !important;
+  border-color: #fff !important;
+  color:#fff !important;
+}
+
+/* 헤더의 대표번호 강조색(필요 시) */
+.call-number{
+  color: var(--brand-primary) !important;
+}
+
