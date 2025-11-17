@@ -8,37 +8,162 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<!-- original content -->
-<div class="popup-overlay" id="onlinePopup">
-  <div class="popup-box">
-    <div class="popup-title">온라인 접수</div>
 
-    <label>성함</label>
-    <input type="text" id="custName" />
+  <!-- 상단 고정 헤더 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="brand-row">
+          <img src="lenovo-logo.jpg" alt="Lenovo 로고" class="brand-logo" />
+          <div class="brand-title">나스AS서버 데이터복구 센터</div>
+        </div>
+        <div class="brand-desc"> NAS / 서버 전문 수리 · 점검 </div>
+      </div>
 
-    <label>연락처</label>
-    <input type="text" id="custPhone" />
+      <div class="call-box">
+        <div class="call-label">대표번호</div>
+        <a class="call-number" href="tel:15446068">1544-6068</a>
+      </div>
 
-    <label>지역 / 주소</label>
-    <input type="text" id="custArea" />
+      <a class="call-button" href="#request-form">상담하기</a>
+    </div>
+  </header>
 
-    <label>고장 증상</label>
-    <select id="issueType">
+  <!-- 히어로 섹션 -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <div class="container hero-inner">
+        <div class="hero-left-block">
+          <div class="hero-headline-row">
+            <div class="headline-text">
+              Synology NAS / 서버 전문 수리센터
+            </div>
+          </div>
+
+          <p class="hero-sub">
+            당일 점검 · 방문 접수 · 택배 수리 지원<br />
+            정품 부품 / 합리적인 비용으로 신속하게 해결합니다.
+          </p>
+
+          <div class="hero-actions">
+            <a class="hero-call" href="#request-form">온라인 접수 바로가기</a>
+            <a class="hero-goform" href="tel:15446068">수리 접수하기</a>
+            <a class="headline-call" href="tel:15446068">📞 1544-6068</a>
+          </div>
+
+          <ul class="hero-highlights">
+            <li>데이터 복구 / 권한 문제 / 공유 폴더 오류</li>
+            <li>디스크 불량 / 볼륨 손상 / RAID 장애</li>
+            <li>펌웨어 / DSM 업데이트 / 네트워크 설정</li>
+            <li>서버 복구 / 백업</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 주요 수리 서비스 -->
+  <section class="services">
+    <div class="container">
+      <h2>주요 수리 서비스</h2>
+      <p class="section-desc">
+        다음과 같은 NAS / 서버 장애에 대해 전문 진단과 복구 서비스를 제공합니다.
+      </p>
+
+      <div class="service-grid">
+        <div class="service-item"><div class="icon">💻</div><div class="title">부팅 불가 / 접근 불가</div><div class="desc">DSM 접속 불가, 부팅 불가, 웹콘솔 오류 등.</div></div>
+        <div class="service-item"><div class="icon">🖥️</div><div class="title">디스크 / RAID 장애</div><div class="desc">디스크 불량, RAID 분리, 볼륨 오류 등.</div></div>
+        <div class="service-item"><div class="icon">🔥</div><div class="title">데이터 복구</div><div class="desc">삭제, NAS 인식 불가, 파일 시스템 손상 복구.</div></div>
+        <div class="service-item"><div class="icon">⚡</div><div class="title">네트워크 문제</div><div class="desc">공유폴더, 권한, 클라우드 동기화 오류.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 온라인 접수 폼 -->
+  <section class="request-section" id="request-form">
+    <div class="container request-inner">
+      <div class="request-info">
+        <h2>수리 / 점검 접수</h2>
+        <p class="section-desc">
+          성함과 연락처만 남겨주시면 담당자가 빠르게 연락드립니다.
+        </p>
+
+        <ul class="request-highlights">
+          <li>정품 기준 사전 안내 후 진행</li>
+          <li>출장 / 택배 / 방문 접수 가능</li>
+          <li>데이터 보안 최우선</li>
+        </ul>
+
+        <div class="request-callout">
+          📞 바로 상담:
+          <a href="tel:15446068">1544-6068</a>
+        </div>
+      </div>
+
+<form class="request-form-card" id="serviceForm">
+  <div class="form-head">온라인 접수 / 문의</div>
+
+  <div class="form-group">
+    <label for="custName">성함</label>
+    <input id="custName" name="성함" type="text" required />
+  </div>
+
+  <div class="form-group">
+    <label for="custPhone">연락처</label>
+    <input id="custPhone" name="연락처" type="tel" required />
+  </div>
+
+  <div class="form-group">
+    <label for="custArea">지역 / 주소</label>
+    <input id="custArea" name="지역/주소" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label for="issueType">고장 증상</label>
+    <select id="issueType" name="고장 증상">
       <option>부팅 불가 / 접근 불가</option>
       <option>디스크 오류 / RAID 장애</option>
-      <option>데이터 복구</option>
-      <option>네트워크 오류</option>
+      <option>데이터 복구 요청</option>
+      <option>네트워크 / 공유 폴더 문제</option>
       <option>기타</option>
     </select>
-
-    <label>상세 설명</label>
-    <textarea id="issueDetail"></textarea>
-
-    <button class="popup-submit" id="popupSubmit">접수하기</button>
-    <button class="popup-close" id="popupClose">닫기</button>
   </div>
-</div>
 
-<script src="script.js"></script>
+  <div class="form-group">
+    <label for="issueDetail">상세 증상</label>
+    <textarea id="issueDetail" name="상세 설명" rows="4"></textarea>
+  </div>
+
+  <button type="submit" class="submit-btn">접수 요청하기</button>
+
+  <div class="form-note">
+    접수 즉시 확인 후 연락드립니다.
+  </div>
+</form>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-col">
+        <div class="footer-brand">Computer Service Center</div>
+        <div class="footer-line">대표번호 : <a href="tel:15446068">1544-6068</a></div>
+        <div class="footer-line">이메일 : <a href="mailto:noteservice@outlook.kr">noteservice@outlook.kr</a></div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-line">사업자등록번호 : 662-07-03217</div>
+        <div class="footer-line">대표자 : 최창식</div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="submit-success" id="submitSuccess">
+    접수되었습니다. 전문 엔지니어가 빠르게 연락드리겠습니다.<br>
+    급하신 경우 1544-6068 로 연락 주세요.
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
