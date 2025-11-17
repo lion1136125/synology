@@ -399,3 +399,9 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   .site-header .call-box{ display:flex !important; }
   .call-label{ color:#888 !important; }
 }
+/* 강제 팝업 복구 패치 */
+#submitSuccess {
+  display: block !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
