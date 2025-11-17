@@ -402,3 +402,11 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   .site-header .call-box{ display:flex !important; }
   .call-label{ color:#888 !important; }
 }
+/* ==== 팝업 가시성 강화 패치 ==== */
+.submit-success {
+  background: #0064ff !important;   /* 더 진한 블루 */
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4) !important;
+}
+
