@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("onlinePopup");
+  const openBtns = document.querySelectorAll(".hero-call, .call-button");
+  const closeBtn = document.getElementById("popupClose");
+
+  openBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      popup.style.display = "flex";
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+  }
+
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) popup.style.display = "none";
+  });
+
   const form = document.getElementById("serviceForm");
   const successBox = document.getElementById("submitSuccess");
 
@@ -18,18 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ⭐ 제출 즉시 팝업 표시
     if (successBox) {
       successBox.style.display = "block";
     }
 
-    // ⭐ 폼 초기화
     form.reset();
 
-    // ⭐ 시놀로지 전용 Google Apps Script로 백그라운드 전송 (CORS 무력화)
     fetch("https://script.google.com/macros/s/AKfycbwjf9tm2i8TPL0IUrm6rYZAJp1En4OUHpzjfS6U6Gc3S16WA34drUjO7OjcbMP64TOO3g/exec", {
       method: "POST",
-      mode: "no-cors",  
+      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         "성함": name,
@@ -41,5 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }).catch((err) => {
       console.error("전송 오류:", err);
     });
+
+    popup.style.display = "none";
   });
 });
