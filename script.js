@@ -1,25 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const popup = document.getElementById("onlinePopup");
-  const openBtns = document.querySelectorAll(".hero-call, .call-button");
-  const closeBtn = document.getElementById("popupClose");
-
-  openBtns.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      popup.style.display = "flex";
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-  }
-
-  popup.addEventListener("click", (e) => {
-    if (e.target === popup) popup.style.display = "none";
-  });
-
   const form = document.getElementById("serviceForm");
   const successBox = document.getElementById("submitSuccess");
 
@@ -40,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (successBox) {
-      successBox.style.display = "block";
+      successBox.classList.add("show");
     }
 
     form.reset();
@@ -60,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("전송 오류:", err);
     });
 
-    popup.style.display = "none";
+    setTimeout(() => {
+      successBox.classList.remove("show");
+    }, 6000);
   });
 });
