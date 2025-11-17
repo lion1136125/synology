@@ -404,13 +404,7 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
 }
 /* ==== 팝업 가시성 강화 패치 ==== */
 .submit-success {
-  background: #0064ff !important;   /* 더 진한 블루 */
-  color: #ffffff !important;
-  border: 2px solid #ffffff !important;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4) !important;
+  background: #ff3b30 !important; /* 빨강 */
+  color: #fff !important;
+  border: 2px solid #fff;
 }
-#submitSuccess.show {
-  display:block !important;
-  opacity:1 !important;
-}
-
