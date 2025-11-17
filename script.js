@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ⭐ 제출 즉시 팝업 표시
+    // ⭐ 접수 완료 즉시 팝업 표시
     if (successBox) {
       successBox.style.display = "block";
     }
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ⭐ 폼 초기화
     form.reset();
 
-    // ⭐ Synology 전용 Apps Script로 비동기 전송
+    // ⭐ Synology 전용 Google Apps Script 전송
     fetch("https://script.google.com/macros/s/AKfycbwR5_tF5BkhE5EVFeQsjDf4IUtw1wytJsNDb7I2C2IXFhljkjiThcjT2sCz3Pta4VsASg/exec", {
       method: "POST",
       mode: "no-cors",
