@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("serviceForm");
   const successBox = document.getElementById("submitSuccess");
 
-  if (!form || !successBox) return;
+  if (!form) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -18,19 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    /* ------------------------
-       1) 접수 즉시 팝업 표시
-    ------------------------ */
+    // ✅ 팝업 표시
     successBox.classList.add("show");
 
-    /* 폼 초기화 */
+    // 폼 초기화
     form.reset();
 
-    /* ------------------------
-       2) Google Apps Script 전송
-    ------------------------ */
-    fetch("https://script.google.com/macros/s/AKfycbxffLjW0qwdB6dZdDdhaANlvFby9F_JqREkpK3Hs49XYs_-fr4NIGxoTyN7lBoM1kAt-Q/exec", {
+    // ✅ Google Apps Script POST
+    fetch("https://script.google.com/macros/s/AKfycbyX__1DijpMKpNs9HB5Ax0qUEF5HHJxlaLLjGvZw06Qa8Itm842sc2-LYq-VmTWzuen2A/exec", {
       method: "POST",
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json"
       },
@@ -41,22 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
         "고장 증상": issue,
         "상세 설명": detail
       })
-    })
-    .then(response => {
-      console.log("GAS 응답:", response);
-      // 성공/실패와 상관없이 팝업은 이미 떠 있음
-    })
-    .catch(err => {
+    }).catch((err) => {
       console.error("전송 오류:", err);
-      // 오류여도 팝업은 이미 떠 있음
     });
 
-    /* ------------------------
-       3) 6초 후 팝업 자동 제거
-    ------------------------ */
+    // 팝업 6초 후 자동 종료
     setTimeout(() => {
       successBox.classList.remove("show");
     }, 6000);
-
   });
 });
