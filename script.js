@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("serviceForm");
   const successBox = document.getElementById("submitSuccess");
 
-  if (!form) return;
+  if (!form || !successBox) return;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -18,19 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ⭐ 제출 즉시 팝업 표시
-    if (successBox) {
-      successBox.style.display = "block";
-    }
+    /* ------------------------
+       1) 접수 즉시 팝업 표시
+    ------------------------ */
+    successBox.classList.add("show");
 
-    // ⭐ 폼 초기화
+    /* 폼 초기화 */
     form.reset();
 
-    // ⭐ 시놀로지 전용 Google Apps Script로 백그라운드 전송 (CORS 무력화)
-    fetch("https://script.google.com/macros/s/AKfycbwjf9tm2i8TPL0IUrm6rYZAJp1En4OUHpzjfS6U6Gc3S16WA34drUjO7OjcbMP64TOO3g/exec", {
+    /* ------------------------
+       2) Google Apps Script 전송
+    ------------------------ */
+    fetch("https://script.google.com/macros/s/AKfycbzO1DBZdgK2Fu_Ecmvo1eKgfNx7WIWWjuLDrN6xgoQe0vqShdZvDfWl1FfiWsKX5swF/exec", {
       method: "POST",
-      mode: "no-cors",  
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         "성함": name,
         "연락처": phone,
@@ -38,8 +41,22 @@ document.addEventListener("DOMContentLoaded", () => {
         "고장 증상": issue,
         "상세 설명": detail
       })
-    }).catch((err) => {
+    })
+    .then(response => {
+      console.log("GAS 응답:", response);
+      // 성공/실패와 상관없이 팝업은 이미 떠 있음
+    })
+    .catch(err => {
       console.error("전송 오류:", err);
+      // 오류여도 팝업은 이미 떠 있음
     });
+
+    /* ------------------------
+       3) 6초 후 팝업 자동 제거
+    ------------------------ */
+    setTimeout(() => {
+      successBox.classList.remove("show");
+    }, 6000);
+
   });
 });
