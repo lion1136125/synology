@@ -22,6 +22,9 @@
   --max-width: 1280px;
   --container-pad: 16px;
 
+  /* ★ 누락되어 팝업이 안 뜨던 핵심 변수 복구 */
+  --shadow-card: 0 8px 20px rgba(0,0,0,0.08);
+
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans KR",
     "Apple SD Gothic Neo", Roboto, "Segoe UI", sans-serif;
 }
@@ -200,7 +203,7 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   border-radius:var(--radius-card);
   border:1px solid #eee;
   padding:20px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  box-shadow:var(--shadow-card);
   min-height:160px;
   display:flex;
   flex-direction:column;
@@ -249,7 +252,7 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   border-radius:var(--radius-card);
   padding:16px;
   font-size:0.9rem;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  box-shadow:var(--shadow-card);
 }
 
 .request-callout a{
@@ -264,7 +267,7 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   border:1px solid #eee;
   overflow:hidden;
   padding-bottom:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  box-shadow:var(--shadow-card);
 }
 
 .form-head{
@@ -398,10 +401,4 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
 @media (min-width: 960px){
   .site-header .call-box{ display:flex !important; }
   .call-label{ color:#888 !important; }
-}
-/* 강제 팝업 복구 패치 */
-#submitSuccess {
-  display: block !important;
-  opacity: 1 !important;
-  pointer-events: auto !important;
 }
