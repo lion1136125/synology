@@ -18,16 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ⭐ 접수 완료 즉시 팝업 표시
+    // ⭐ 제출 즉시 팝업 표시 (지연 없음)
     if (successBox) {
       successBox.style.display = "block";
     }
 
-    // ⭐ 폼 초기화
+    // ⭐ 폼 초기화 (전송 후 리셋)
     form.reset();
 
-    // ⭐ Synology 전용 Google Apps Script 전송
-    fetch("https://script.google.com/macros/s/AKfycbwR5_tF5BkhE5EVFeQsjDf4IUtw1wytJsNDb7I2C2IXFhljkjiThcjT2sCz3Pta4VsASg/exec", {
+    // ⭐ Synology 전용 Apps Script URL
+    const url = "https://script.google.com/macros/s/AKfycbwR5_tF5BkhE5EVFeQsjDf4IUtw1wytJsNDb7I2C2IXFhljkjiThcjT2sCz3Pta4VsASg/exec";
+
+    // ⭐ 백그라운드로 전송 (no-cors → CORS 우회, 실패여도 스크립트 계속)
+    fetch(url, {
       method: "POST",
       mode: "no-cors",
       headers: { "Content-Type": "application/json" },
