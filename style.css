@@ -408,3 +408,9 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   color: #fff !important;
   border: 2px solid #fff;
 }
+#submitSuccess {
+  background: #1677ff !important;
+  color: #fff !important;
+  border-radius: 12px;
+}
+
