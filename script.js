@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ------------------------
        2) Google Apps Script 전송
     ------------------------ */
-    fetch("https://script.google.com/macros/s/AKfycbzO1DBZdgK2Fu_Ecmvo1eKgfNx7WIWWjuLDrN6xgoQe0vqShdZvDfWl1FfiWsKX5swF/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxffLjW0qwdB6dZdDdhaANlvFby9F_JqREkpK3Hs49XYs_-fr4NIGxoTyN7lBoM1kAt-Q/exec", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
