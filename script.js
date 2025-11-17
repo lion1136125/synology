@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Google Script Endpoint
-    const endpoint = "https://script.google.com/macros/s/AKfycbwR5_tF5BkhE5EVFeQsjDf4IUtw1wytJsNDb7I2C2IXFhljkjiThcjT2sCz3Pta4VsASg/exec";
+    const endpoint = "https://script.google.com/macros/s/AKfycbwjf9tm2i8TPL0IUrm6rYZAJp1En4OUHpzjfS6U6Gc3S16WA34drUjO7OjcbMP64TOO3g/exec";
 
     const payload = {
       "성함": name,
