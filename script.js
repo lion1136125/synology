@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     form.reset();
 
     // ✅ Google Apps Script POST
-    fetch("https://script.google.com/macros/s/AKfycbyX__1DijpMKpNs9HB5Ax0qUEF5HHJxlaLLjGvZw06Qa8Itm842sc2-LYq-VmTWzuen2A/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbwtkqOjshmlxwRVdpz2_HRcHfksm7J7dzNdRM_uKgmo1WPJgHKsljnGAXNiQYIiwJdpeQ/exec", {
       method: "POST",
       mode: "no-cors",
       headers: {
