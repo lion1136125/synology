@@ -146,10 +146,11 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   white-space:nowrap;
 }
 
+/* 전화번호 버튼도 다른 버튼과 동일한 파란 버튼 + 흰색 글자 */
 .headline-call{
-  background:var(--brand-soft);
-  color:var(--brand-primary);
-  border:1px solid var(--brand-border);
+  background: var(--brand-primary);
+  color: #fff;
+  border:2px solid transparent;
 }
 
 @media (max-width:599px){
@@ -227,12 +228,27 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   .request-inner{ grid-template-columns:1fr 400px; }
 }
 
+/* 제목 – 왼쪽 정렬 + 아래 여백 살짝 */
 .request-info h2{
-  margin:0 0 8px;
+  margin:0 0 4px;
   font-size:1.4rem;
   font-weight:800;
+  text-align:left;
 }
 
+/* 설명 문구 – 왼쪽 정렬 + 한 줄 + 말줄임표 */
+.request-info .section-desc{
+  margin:0 0 12px;
+  font-size:0.92rem;
+  color:#777;
+  text-align:left;
+  max-width:620px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+/* 불릿 – 기본 왼쪽 정렬 */
 .request-highlights{
   list-style:none;
   padding:0;
@@ -402,6 +418,7 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   .site-header .call-box{ display:flex !important; }
   .call-label{ color:#888 !important; }
 }
+
 /* ==== 팝업 가시성 강화 패치 ==== */
 .submit-success {
   background: #ff3b30 !important; /* 빨강 */
@@ -413,4 +430,3 @@ body{ margin:0; background:var(--bg-page); color:var(--text-main); }
   color: #fff !important;
   border-radius: 12px;
 }
-
